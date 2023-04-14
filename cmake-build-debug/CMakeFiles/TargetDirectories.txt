@@ -1,3 +1,0 @@
-/Users/muhammedmammadhuseynov/Developer/stepit_homework/cmake-build-debug/CMakeFiles/stepit_homework.dir
-/Users/muhammedmammadhuseynov/Developer/stepit_homework/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/muhammedmammadhuseynov/Developer/stepit_homework/cmake-build-debug/CMakeFiles/rebuild_cache.dir
