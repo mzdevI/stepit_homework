@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /Users/muhammedmammadhuseynov/Developer/stepit_homework Select CMakeLists.txt
