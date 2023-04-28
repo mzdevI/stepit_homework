@@ -4,6 +4,7 @@ using namespace std;
 
 int main() {
     int arrSize = 6;
+    int maxBundlePurchaseAmount = 3;
     auto** products = new char*[arrSize] {
             new char[20]{"Jacket"},
             new char[20]{"Hat"},
@@ -149,7 +150,6 @@ int main() {
                     cin >> choice;
 
                     if (choice == 0) {
-                        // IF the total cost is over 300, they get one item for free
                         if (totalCost > 300) {
                             cout << "You get one item for free" << endl;
                             cout << "Choose item to get for free: ";
@@ -196,15 +196,21 @@ int main() {
                         }
                         else {
                             if (discountItems[choice - 1] > 0) {
-                                int bundleDiscount = discountBundle[0];
-                                int bundleIndex = choice + arrSize;
+                                if (discountBundlePurchaseCount < maxBundlePurchaseAmount) {
+                                    int bundleDiscount = discountBundle[0];
+                                    int bundleIndex = choice + arrSize;
 
-                                if (discountBundle[bundleIndex] == 1) {
-                                    float discountAmount = (productPrice[choice - 1] * (discountItems[choice - 1] + bundleDiscount)) / 100;
-                                    totalCost += (productPrice[choice - 1] - discountAmount) * amount;
+                                    if (discountBundle[bundleIndex] == 1) {
+                                        float discountAmount = (productPrice[choice - 1] * (discountItems[choice - 1] + bundleDiscount)) / 100;
+                                        totalCost += (productPrice[choice - 1] - discountAmount) * amount;
+                                        discountBundlePurchaseCount++;
+                                    } else {
+                                        float discountAmount = productPrice[choice - 1] * discountItems[choice - 1] / 100;
+                                        totalCost += (productPrice[choice - 1] - discountAmount) * amount;
+                                    }
                                 } else {
-                                    float discountAmount = productPrice[choice - 1] * discountItems[choice - 1] / 100;
-                                    totalCost += (productPrice[choice - 1] - discountAmount) * amount;
+                                    cout << "You have reached the maximum amount of bundle purchases" << endl;
+                                    totalCost += productPrice[choice - 1] * amount;
                                 }
                             } else {
                                 totalCost += productPrice[choice - 1] * amount;
