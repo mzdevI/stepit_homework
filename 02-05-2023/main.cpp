@@ -11,7 +11,7 @@ struct Zoo{
     char* name = new char[20]{};
     unsigned int capacity{10};
     unsigned int animalCount{};
-    Animal *animals{};
+    Animal* animals{};
 
     void addAnimal() {
         if (animalCount < capacity){
