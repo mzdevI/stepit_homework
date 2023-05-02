@@ -11,68 +11,66 @@ struct Zoo{
     char* name = new char[20]{};
     unsigned int capacity{10};
     unsigned int animalCount{};
-    Animal* animals{};
+    Animal* animals = new Animal[animalCount]{};
 
-    void addAnimal() {
+    void addAnimal(Animal animal) {
         if (animalCount < capacity){
-            Animal *animal = new Animal{};
-
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-            cout << "Enter animal name: ";
-            cin.ignore();
-
-            cout << "Enter animal age: ";
-            cin >> animal->age;
-            cin.ignore();
-
-            cout << "Enter animal gender: ";
-            cin.getline(animal->gender, sizeof(animal->gender));
-            animal[animalCount] = *animal;
+            auto* newAnimal = new Animal[animalCount]{};
+            for (int i = 0; i < animalCount; ++i) {
+                newAnimal[i] = animals[i];
+            }
+            newAnimal[animalCount] = animal;
+            delete[] animals;
+            animals = newAnimal;
             animalCount++;
         }
+        else {
+            cout << "Error, Zoo capacity reached.";
+        }
     }
+
+    void removeAnimal(int index) {
+        auto* newAnimal = new Animal[animalCount-1]{};
+        for (int i = 0; i < animalCount; ++i) {
+            newAnimal[i] = animals[i];
+        }
+        for (int i = index; i < animalCount-1; ++i) {
+            newAnimal[i] = animals[i+1];
+        }
+        delete[] animals;
+        animals = newAnimal;
+        animalCount--;
+    }
+
+    void editAnimal(int index, Animal animal) {
+        animals[index] = animal;
+    }
+
+    void printAnimals() const {
+        cout << "Name:\tAge:\tGender:" << endl;
+        for (int i = 0; i < animalCount; ++i) {
+            cout << animals[i].name << "\t" << animals[i].age << "\t" << animals[i].gender << endl;
+        }
+    }
+
 };
 
 
-void createZoo(Zoo *&zoo) {
-    zoo = new Zoo{};
-    cout << "Enter zoo name: ";
-    cin.getline(zoo->name, 20);
-
-    cout << "Enter zoo capacity";
-    cin >> zoo->capacity;
-    getchar();
-}
-
-void addAnimal(char name[], int &age, char gender[]) {
-}
-
-void removeAnimal(){
-}
-
 int main() {
-    int choice{};
-    Zoo *zoo{};
-    createZoo(zoo);
+    Zoo zoo;
+    strcpy(zoo.name, "Zoo");
+    zoo.capacity = 10;
+    zoo.animalCount = 0;
+
+    zoo.addAnimal({"Cow", 5, "Female"});
+    zoo.addAnimal({"Dog", 3, "Male"});
+    zoo.editAnimal(0, {"Cow", 3, "Female"});
+    zoo.printAnimals();
+
+    cout << "\tAfter removing:" << endl;
+    zoo.removeAnimal(0);
+    zoo.printAnimals();
 
 
-    while (true) {
-        cout << "Enter choice: " << endl
-             << "0 - Exit" << endl
-             << "1 - Add animal" << endl
-             << "2 - Remove animal" << endl
-             << "3 - Edit specific animal" << endl
-             << "4 - Show all animals" << endl;
-        cin >> choice;
-
-        if (choice == 0)
-            break;
-
-        switch (choice) {
-            case 1:
-        }
-
-    }
     return 0;
 }
