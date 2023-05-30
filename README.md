@@ -1,1 +1,1 @@
-Repository for StepIT homeworks and projects
+Repository for StepIT homeworks
