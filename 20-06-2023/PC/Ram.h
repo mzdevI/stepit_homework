@@ -5,7 +5,7 @@
 #include "MemoryComponent.h"
 using namespace std;
 
-struct RAM:MemoryComponent {
+struct RAM: public MemoryComponent {
 private:
     int speed{};
     int modules{};
@@ -14,8 +14,6 @@ private:
 public:
     RAM(const string& brand, int capacity, int speed, int modules, const string& type);
 
-    string getBrand() const;
-    int getCapacity() const;
     int getSpeed() const;
     int getModules() const;
     string getType() const;

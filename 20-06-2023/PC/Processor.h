@@ -5,16 +5,15 @@
 #include "PcComponent.h"
 using namespace std;
 
-struct Processor:PcComponent {
+struct Processor: public PcComponent {
 private:
     int cores;
     float clockSpeed;
 
 public:
+    Processor() = default;
     Processor(const string& brand, const string& model, int cores, float clockSpeed);
 
-    string getBrand() const;
-    string getModel() const;
     int getCores() const;
     float getClockSpeed() const;
 };

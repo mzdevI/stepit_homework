@@ -8,6 +8,14 @@ class MemoryComponent {
 protected:
     string brand;
     int capacity;
+
+public:
+    MemoryComponent(const string &brand, int capacity);
+
+    string getBrand() const;
+    int getCapacity() const;
+
+
 };
 
 

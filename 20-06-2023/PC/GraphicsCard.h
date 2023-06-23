@@ -5,7 +5,7 @@
 #include "PcComponent.h"
 using namespace std;
 
-class GraphicsCard:PcComponent {
+class GraphicsCard: public PcComponent {
 private:
     int memory;
     string memoryType;
@@ -14,10 +14,9 @@ private:
     int powerConsumption;
 
 public:
+    GraphicsCard() = default;
     GraphicsCard(const string& brand, const string& model, int memory, const string& memoryType, int coreClock, int boostClock, int powerConsumption);
 
-    string getBrand() const;
-    string getModel() const;
     int getMemory() const;
     string getMemoryType() const;
     int getCoreClock() const;

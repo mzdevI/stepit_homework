@@ -8,6 +8,11 @@ class PcComponent {
 protected:
     string brand;
     string model;
+
+public:
+    PcComponent(const string& brand, const string& model);
+    string getBrand();
+    string getModel();
 };
 
 

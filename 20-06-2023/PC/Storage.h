@@ -5,7 +5,7 @@
 #include "MemoryComponent.h"
 using namespace std;
 
-class Storage: MemoryComponent {
+class Storage: public MemoryComponent {
 private:
     string storageType;
     float size;
@@ -13,15 +13,12 @@ private:
     int readSpeed;
 
 public:
-    Storage(const string& brand, const string& storageType, int capacity, float size, int writeSpeed, int readSpeed);
-
-    string getBrand() const;
+    Storage() = default;
+    Storage(const string& brand, int capacity, const string& storageType, float size, int writeSpeed, int readSpeed);
     string getStorageType() const;
-    int getCapacity() const;
     float getSize() const;
     int getWriteSpeed() const;
     int getReadSpeed() const;
 };
-
 
 #endif

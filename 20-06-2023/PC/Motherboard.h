@@ -9,20 +9,19 @@
 #include "PcComponent.h"
 using namespace std;
 
-struct Motherboard:PcComponent {
+struct Motherboard: public PcComponent {
 private:
     string socket;
     int pciExpressSlots;
     string formFactor;
 public:
-    Processor processor;
-    Storage storage;
-    RAM ram;
-    Motherboard(const string& brand, const string& model, const Processor& processor, const Storage& storage, const RAM& ram,  const string& socket,
+    Processor* processor{};
+    Storage* storage{};
+    RAM* ram{};
+    Motherboard() = default;
+    Motherboard(const string& brand, const string& model, Processor *processor, Storage *storage, RAM *ram,  const string& socket,
                 int pciExpressSlots, const string& formFactor);
 
-    string getBrand() const;
-    string getModel() const;
     string getSocket() const;
     int getPciExpressSlots() const;
     string getFormFactor() const;

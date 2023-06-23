@@ -5,16 +5,15 @@
 #include "PcComponent.h"
 using namespace std;
 
-class Cooling:PcComponent {
+class Cooling: public PcComponent {
 private:
     int fanSpeed;
     int noiseLevel;
 
 public:
+    Cooling() = default;
     Cooling(const string& brand, const string& model, int fanSpeed, int noiseLevel);
 
-    string getBrand() const;
-    string getModel() const;
     int getFanSpeed() const;
     int getNoiseLevel() const;
 };
