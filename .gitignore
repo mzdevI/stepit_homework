@@ -1,0 +1,36 @@
+# Rider and C# project files
+.idea/
+*.sln.iml
+.vscode/
+.vs/
+*.csproj
+*.suo
+*.user
+*.userprefs
+*.sln
+*.suo
+*.user
+*.suo
+*.userprefs
+*.sln.docstates
+*.suo
+*.user
+*.userprefs
+
+# Output directories
+bin/
+obj/
+packages/
+
+# Rider settings
+.idea/
+*.iml
+
+# Rider Caches
+.idea/caches/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
