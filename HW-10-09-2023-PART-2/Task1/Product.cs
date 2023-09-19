@@ -1,4 +1,4 @@
-namespace HW_10_09_2023_PART_2.Tasks;
+namespace HW_10_09_2023_PART_2.Task1;
 
 public class Product
 {
