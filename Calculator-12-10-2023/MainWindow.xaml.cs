@@ -113,7 +113,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         ResetResult();
     }
 
-
     private void ZeroButton_Click(object sender, RoutedEventArgs e)
     {
         ValueStateHandler();
@@ -137,6 +136,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         ValueStateHandler();
         CurrentValue = CurrentValue * 10 + 3;
     }
+
     private void FourButton_Click(object sender, RoutedEventArgs e)
     {
         ValueStateHandler();
@@ -183,18 +183,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Calculate(Operator.DIVIDE);
     }
 
-
     private void MultiplyButton_Click(object sender, RoutedEventArgs e)
     {
         Calculate(Operator.MULTIPLY);
     }
 
-
     private void MinusButton_Click(object sender, RoutedEventArgs e)
     {
         Calculate(Operator.SUBTRACT);
     }
-
 
     private void PlusButton_Click(object sender, RoutedEventArgs e)
     {
