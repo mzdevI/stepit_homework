@@ -31,15 +31,19 @@ public enum Operator
     SUBTRACT,
     MULTIPLY,
     DIVIDE,
+    CLEAR,
+    EQAUL
 }
 
 
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
 
-    private int _result = 0;
+    private int _currentValue = 0;
+    private Operator _currentOperator;
     private bool _isShowingValueAfterOperation = false;
     private int[] _eqation = new int[2];
+    private int _result = 0;
     private EqationSide _index = EqationSide.LEFT;
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -56,31 +60,122 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    public int Result
+    public int CurrentValue
     {
-        get { return _result; }
+        get { return _currentValue; }
         set
         {
-            _result = value;
-            OnPropertyChanged(nameof(Result));
+            _currentValue = value;
+            OnPropertyChanged(nameof(CurrentValue));
+        }
+    }
+    
+    private Operator CurrentOperator
+    {
+        get { return _currentOperator; }
+        set 
+        {
+            _currentOperator = value;
+            switch (_currentOperator)
+            {
+                case Operator.ADD:
+                    OperatorLabel.Content = "+";
+                    break;
+
+                case Operator.SUBTRACT:
+                    OperatorLabel.Content = "-";
+                    break;
+
+                case Operator.MULTIPLY:
+                    OperatorLabel.Content = "*";
+                    break;
+
+                case Operator.DIVIDE:
+                    OperatorLabel.Content = "÷";
+                    break;
+
+                case Operator.CLEAR:
+                    OperatorLabel.Content = "CLEAR";
+                    break;
+
+                case Operator.EQAUL:
+                    OperatorLabel.Content = "=";
+                    break;
+            }
         }
     }
 
     private void ClearButton_Click(object sender, RoutedEventArgs e)
     {
-        ResetResult();
+        CurrentOperator = Operator.CLEAR;
         _index = EqationSide.LEFT;
         _eqation[(int)EqationSide.LEFT] = 0;
+        ResetResult();
     }
 
-    private void PlusMinusButton_Click(object sender, RoutedEventArgs e)
+
+    private void ZeroButton_Click(object sender, RoutedEventArgs e)
     {
-        // Implement the logic for the "+/-" (Plus/Minus) button click event here.
+        ValueStateHandler();
+        CurrentValue *= 10;
     }
 
-    private void PercentButton_Click(object sender, RoutedEventArgs e)
+    private void OneButton_Click(object sender, RoutedEventArgs e)
     {
-        // Implement the logic for the "%" (Percent) button click event here.
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 1;
+    }
+
+    private void TwoButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 2;
+    }
+
+    private void ThreeButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 3;
+    }
+    private void FourButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 4;
+    }
+
+    private void FiveButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 5;
+    }
+
+    private void SixButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 6;
+    }
+    private void SevenButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 7;
+    }
+
+    private void EightButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 8;
+    }
+
+    private void NineButton_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue = CurrentValue * 10 + 9;
+    }
+
+    private void InvertSign_Click(object sender, RoutedEventArgs e)
+    {
+        ValueStateHandler();
+        CurrentValue *= -1;
     }
 
     private void DivideButton_Click(object sender, RoutedEventArgs e)
@@ -88,94 +183,37 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         Calculate(Operator.DIVIDE);
     }
 
-    private void SevenButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 7;
-    }
-
-    private void EightButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 8;
-    }
-
-    private void NineButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 9;
-    }
 
     private void MultiplyButton_Click(object sender, RoutedEventArgs e)
     {
         Calculate(Operator.MULTIPLY);
     }
 
-    private void FourButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 4;
-    }
-
-    private void FiveButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 5;
-    }
-
-    private void SixButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 5;
-    }
 
     private void MinusButton_Click(object sender, RoutedEventArgs e)
     {
         Calculate(Operator.SUBTRACT);
     }
 
-    private void OneButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 1;
-    }
-
-    private void TwoButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 2;
-    }
-
-    private void ThreeButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result = Result * 10 + 3;
-    }
 
     private void PlusButton_Click(object sender, RoutedEventArgs e)
     {
         Calculate(Operator.ADD);
     }
 
-    private void ZeroButton_Click(object sender, RoutedEventArgs e)
-    {
-        ValueStateHandler();
-        Result *= 10;
-    }
-
-    private void CommaButton_Click(object sender, RoutedEventArgs e)
-    {
-        // Implement the logic for the "," (Comma) button click event here.
-    }
-
     private void EqualButton_Click(object sender, RoutedEventArgs e)
     {
+        if (_index == EqationSide.RIGHT)
+        {
+            Calculate(CurrentOperator);
+        }
 
+        CurrentOperator = Operator.EQAUL;
     }
 
     private void ResetResult()
     {
-        Result = 0;
+        CurrentValue = 0;
     }
     
    private void ValueStateHandler()
@@ -189,42 +227,47 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     private void Calculate(Operator op)
     {
+        if (_isShowingValueAfterOperation)
+        {
+            CurrentOperator = op;
+            return;
+        };
+
         if (_index == EqationSide.LEFT)
         {
-            _eqation[(int)EqationSide.LEFT] = Result;
-            ResetResult();
+            _eqation[(int)EqationSide.LEFT] = CurrentValue;
             _index = EqationSide.RIGHT;
+
+            CurrentOperator = op;
+            ResetResult();
+            return;
         }
+
         else
         {
-            Result = _eqation[(int)EqationSide.LEFT] + Result;
-
             switch (op)
             {
                 case Operator.ADD:
-                    Result = _eqation[(int)EqationSide.LEFT] + Result;
+                    _result = _eqation[(int)EqationSide.LEFT] + CurrentValue;
                     break;
 
                 case Operator.SUBTRACT:
-                    Result = _eqation[(int)EqationSide.LEFT] - Result;
+                    _result = _eqation[(int)EqationSide.LEFT] - CurrentValue;
                     break;
 
                 case Operator.MULTIPLY:
-                    Result = _eqation[(int)EqationSide.LEFT] * Result;
+                    _result = _eqation[(int)EqationSide.LEFT] * CurrentValue;
                     break;
 
                 case Operator.DIVIDE:
-                    Result = _eqation[(int)EqationSide.LEFT] / Result;
+                    _result = _eqation[(int)EqationSide.LEFT] / CurrentValue;
                     break;
-
-
-
             }
 
-            _eqation[(int)EqationSide.LEFT] = Result;
+            _eqation[(int)EqationSide.LEFT] = _result;
             _eqation[(int)EqationSide.RIGHT] = 0;
             _isShowingValueAfterOperation = true;
+            CurrentValue = _result;
         }
     }
-
 }
