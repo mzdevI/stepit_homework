@@ -1,6 +1,6 @@
 # Visual Studio temporary files
 .vscode/
-.vs/
+*.vs/
 *.suo
 *.user
 *.userosscache
@@ -111,6 +111,11 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
+
+*bin/
+*obj/
+*.sln
+*.csproj
 
 # Visual Studio files
 .vscode/
