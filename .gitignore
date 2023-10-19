@@ -1,6 +1,6 @@
 # Visual Studio temporary files
 .vscode/
-*.vs/
+.vs/
 *.suo
 *.user
 *.userosscache
@@ -83,40 +83,6 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# VS Code directories
-.vscode/
-
-# Visual Studio for Mac
-.vscode/
-.idea/
-
-# Rider
-.idea/
-
-# User-specific files
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
-
-# Mono Auto Generated Files
-mono_crash.*
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-*bin/
-*obj/
-*.sln
-*.csproj
-
 # Visual Studio files
 .vscode/
 .vscode-test/
@@ -139,3 +105,12 @@ x86/
 [Tt][Ee][Ss][Tt][Rr][Ee][Ss][Uu][Ll][Tt][Ss]/
 [Bb][Ii][Nn]/
 [Oo][Bb][Jj]/
+.vs
+bin/Debug/net6.0-windows
+obj
+
+# Project-specific files and directories
+AssemblyInfo.cs
+Calculator-12-10-2023.csproj
+Calculator-12-10-2023.csproj.user
+Calculator-12-10-2023.sln
