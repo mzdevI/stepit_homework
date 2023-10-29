@@ -46,5 +46,10 @@ namespace Auth_24_10_2023.Views
         {
             NavigationService.Navigate(new HomeView(user));
         }
+
+        public void ForgotPasswordButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ResetCredentialsView());
+        }
     }
 }

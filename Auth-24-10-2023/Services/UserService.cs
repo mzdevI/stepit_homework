@@ -48,4 +48,23 @@ internal class UserService
 
         throw new InvalidCredentialException("Invalid email or password");
     }
+
+    static public User ResetPassword(string email, string newPassword)
+    {
+        if (Users != null)
+        {
+            foreach(var user in Users)
+            {
+                if (user.Email == email)
+                {
+                    user.ResetPassword(newPassword);
+                    SerializeService.Serialize("UserDB.json", Users);
+
+                    return user;
+                }
+            }
+        }
+
+        throw new InvalidCredentialException("Invalid email, this user does not exist");
+    }
 }
