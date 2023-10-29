@@ -1,0 +1,63 @@
+﻿<Window x:Class="Calculator_12_10_2023.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator_12_10_2023"
+        mc:Ignorable="d"
+        WindowStyle="SingleBorderWindow"
+        Title="" MinHeight="450" MaxWidth="320" MaxHeight="450" MinWidth="320">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".2*"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width=".2*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Left" Margin="2">
+            <Label FontSize="22" Name="OperatorLabel"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="0" HorizontalAlignment="Right" Margin="2">
+            <Label  Content="{Binding CurrentValue}" FontSize="42"/>
+        </StackPanel>
+
+        <Button Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="2" Background="DarkGray" Click="ClearButton_Click">C</Button>
+        <Button Grid.Column="3" Grid.Row="1" Margin="2" Background="DarkGray" Click="InvertSign_Click">+/-</Button>
+        <Button Grid.Column="4" Grid.Row="1" Margin="2" Background="Orange" Click="DivideButton_Click">÷</Button>
+
+        <Button Grid.Column="1" Grid.Row="2" Margin="2" Click="SevenButton_Click">7</Button>
+        <Button Grid.Column="2" Grid.Row="2" Margin="2" Click="EightButton_Click">8</Button>
+        <Button Grid.Column="3" Grid.Row="2" Margin="2" Click="NineButton_Click">9</Button>
+        <Button Grid.Column="4" Grid.Row="2" Margin="2" Background="Orange" Click="MultiplyButton_Click">x</Button>
+
+        <Button Grid.Column="1" Grid.Row="3" Margin="2" Click="FourButton_Click">4</Button>
+        <Button Grid.Column="2" Grid.Row="3" Margin="2" Click="FiveButton_Click">5</Button>
+        <Button Grid.Column="3" Grid.Row="3" Margin="2" Click="SixButton_Click">6</Button>
+        <Button Grid.Column="4" Grid.Row="3" Margin="2" Background="Orange" Click="MinusButton_Click">-</Button>
+
+        <Button Grid.Column="1" Grid.Row="4" Margin="2" Click="OneButton_Click">1</Button>
+        <Button Grid.Column="2" Grid.Row="4" Margin="2" Click="TwoButton_Click">2</Button>
+        <Button Grid.Column="3" Grid.Row="4" Margin="2" Click="ThreeButton_Click">3</Button>
+        <Button Grid.Column="4" Grid.Row="4" Margin="2" Background="Orange" Click="PlusButton_Click">+</Button>
+
+        <Button Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Margin="2" Click="ZeroButton_Click">0</Button>
+        <Button Grid.Column="4" Grid.Row="5" Margin="2" Background="Orange" Click="EqualButton_Click">=</Button>
+
+
+    </Grid>
+</Window>

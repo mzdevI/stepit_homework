@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "hKPzfrcH4vx5/zGYqsP8BBdus9lvZYA2xOe5dLe7gra9XNF+28d2uB4Ve0rd3tWhXTRsfdd34xoxGGTur7hYHg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\muhammedmammadhuseyn\\stepit-homework\\Auth-24-10-2023\\Auth-24-10-2023.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\controlzex\\4.3.0\\controlzex.4.3.0.nupkg.sha512",
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\mahapps.metro\\2.0.0\\mahapps.metro.2.0.0.nupkg.sha512",
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\materialdesignthemes.mahapps\\0.3.0\\materialdesignthemes.mahapps.0.3.0.nupkg.sha512",
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\muhammedmammadhuseyn\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}
