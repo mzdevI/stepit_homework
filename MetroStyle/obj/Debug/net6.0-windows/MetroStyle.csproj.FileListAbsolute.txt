@@ -1,0 +1,3 @@
+C:\Users\muhammedmammadhuseyn\Developer\stepit-homework\MetroStyle\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\muhammedmammadhuseyn\Developer\stepit-homework\MetroStyle\obj\Debug\net6.0-windows\MetroStyle_Content.g.cs
+C:\Users\muhammedmammadhuseyn\Developer\stepit-homework\MetroStyle\obj\Debug\net6.0-windows\MetroStyle_MarkupCompile.cache
