@@ -1,0 +1,38 @@
+﻿<Window x:Class="Cinema.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cinema"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Grid Width="600" Height="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="0">
+            <TextBox x:Name="searchQuery" Padding="8,0,0,0" Width="400" />
+            <Button Width="60" VerticalAlignment="Center" Margin="8,0,0,0" Click="ButtonSearchMovies_Click">
+                <md:PackIcon Kind="Search"/>
+            </Button>
+        </StackPanel>
+
+        <Label Grid.Row="1" Margin="2"  HorizontalAlignment="Left" Foreground="Red" x:Name="ErrorLabel"/>
+
+        <ListBox Grid.Row="2" x:Name="MovieListBox">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding Title}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+
+</Window>
