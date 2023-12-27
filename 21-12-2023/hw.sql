@@ -22,13 +22,13 @@ CREATE TABLE Enrollments (
 
 
 SELECT AVG(s.GPA) AS AverageGPA
-FROM Students as s
+FROM Students s
 JOIN Enrollments e ON s.StudentID = e.StudentID
 WHERE e.CourseID = 101;
 go;
 
 SELECT MAX(s.Age) AS MaxAge
-FROM Students as s
+FROM Students s
 JOIN Enrollments e ON s.StudentID = e.StudentID
 WHERE e.Grade > 3.5;
 go;
@@ -39,7 +39,7 @@ WHERE Difficulty > 3;
 go;
 
 SELECT c.CourseName, AVG(e.Grade) AS AverageGrade
-FROM Courses as c
+FROM Courses c
 JOIN Enrollments e ON c.CourseID = e.CourseID
 GROUP BY c.CourseName;
 go;
