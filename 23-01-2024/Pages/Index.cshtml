@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Search OMDB</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="searchTerm">Search Term:</label>
+        <input type="text" id="searchTerm" class="form-control" asp-for="SearchTerm" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model.SearchResults != null)
+{
+    <h2>Search Results:</h2>
+    <ul>
+        @foreach (var result in Model.SearchResults)
+        {
+            <li>@result.Title - @result.Year</li>
+        }
+    </ul>
+}
